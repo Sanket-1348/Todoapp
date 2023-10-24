@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+
+  <style>
+
+   .div{
+
+    display:inline;
+
+    height: 500px;
+
+    width: 1080px;
+
+    background-color: aqua;
+
+    margin:4px;
+
+   }
+
+  button{
+
+    margin:3px;
+
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+  
+
+  <div id="div-r" class="div">
+
+   <input type="text" placeholder="I need to..." id="inp" >
+
+  <button id="add">add task</button>
+
+  </div>
+
+  <div id="div-l" class="div" >
+
+    Right div
+
+   </div>
+
+  <script>
+
+    const ans=[];
+
+    // let chbtn=document.createElement("button");
+
+    // chbtn.innerHTML= "&check;";// to add tick buutton
+
+    // let crbtn=document.createElement("button");
+
+    // crbtn.innerHTML= "&cross;";// to add cross buutton
+
+    //elementname.append(e1,e2,e3,..en); way to append multiple elements
+
+    // style.textDecoration="line-through"; to add line across the input text
+
+    //"line-up".....
+
+ 
+
+    let btn=document.getElementById("add");
+
+    function addInDiv()
+
+    {
+
+      let data=document.getElementById("inp").value;
+
+      let dvl=document.getElementById("div-l");
+
+      let ndv=document.createElement("div");
+
+      let span=document.createElement("span");
+
+      span.innerHTML=data;
+
+      let tick=document.createElement("button");
+
+      tick.setAttribute("id","tck");
+
+      tick.innerHTML="&check;";
+
+      
+
+      tick.addEventListener("click",()=>{
+
+      ans.push(data);
+
+      span.style.textDecoration="line-through";
+
+    })
+
+      let cross=document.createElement("button");
+
+      cross.setAttribute("id","crs");
+
+      cross.innerHTML="&cross;";
+
+      
+
+     cross.addEventListener("click",()=>{
+
+      document.getElementById("inp").value="";
+
+      ndv.remove();
+
+     })
+
+       ndv.append(span,tick,cross);// appendChild() can only append one element at a time, so should not use appendChild
+
+      dvl.append(ndv);
+
+    }
+
+    btn.addEventListener("click",addInDiv);
+
+  </script>
+
+</body>
+
+</html>
+
